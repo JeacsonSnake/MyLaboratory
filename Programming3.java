@@ -46,7 +46,10 @@ public class Programming3 {
         	else {
         		System.out.println("You still have "+live +" lives left!");
         	}
+            System.out.println();
+            System.out.println("(You can guess one letter or whole word.)");
         	String a = sc .next();
+            
         	live=Integer.parseInt(guess(a,wordToGuess,lineine,live,word));
         	
         }
@@ -60,12 +63,20 @@ public class Programming3 {
     
     public static String guess(String a,String wordToGuess,char lineine[],int live,char word[]) {
 		
-    	if (a.matches(wordToGuess))
+    	if (a.length()>1)
+		{
+            if (a.matches(wordToGuess))
 		{
 			System.out.println("You win! The word is "+wordToGuess+" !");
 			System.exit(1);
 		}
-		else if (wordToGuess.matches(".*"+a+".*"))
+			else
+            {
+                System.out.println("WRONG! Game over!");
+                System.exit(1);
+            }
+		}
+		else if (wordToGuess.matches("a"))
 		{
 			char c = a.charAt(0);
 			for (int i = 0;i<wordToGuess.length();i++)
